@@ -1,0 +1,410 @@
+$white: hsl(0, 0%, 98%);
+$gray: hsl(0, 0%, 41%);
+$black: hsl(0, 0%, 8%);
+
+:root {
+    --white: #{$white};
+    --gray: #{$gray};
+    --black: #{$black};
+}
+
+.attribution { 
+    font-size: 11px; text-align: center;
+    
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
+
+* {
+    font-family: 'Epilogue', sans-serif;
+}
+
+.hide {
+    display: none;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+    background-color: $white;
+
+    &__overlay {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0);
+        height: 100vh;
+        width: 100%;
+        z-index: 1;
+        transition: 300ms;
+    }
+}
+
+.overlay__on {
+    background-color: rgba(0, 0, 0, 0.493);
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}
+
+li {
+    list-style: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__logo {
+        margin: 1em;
+    }
+
+    .nav__open {
+        margin: 1em;
+    }
+}
+
+.nav__open, .nav__close {
+    cursor: pointer;
+}
+
+.nav__close {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1em;
+}
+
+.nav {
+    position: fixed;
+    inset: 0 0 0 100%;
+    background-color: $white;
+    white-space: nowrap;
+    padding: 4em 1.5em 0;
+    transition: 300ms;
+    z-index: 2;
+
+    a {
+        color: $gray;
+
+        &:hover {
+            color: $black;
+        }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    &__ul--li {
+        margin-bottom: 2em;
+    }
+
+    .arrow {
+        margin-left: 0.5em;
+    }
+
+    .features__ul, .company__ul {
+        margin: 0 1em;
+
+        svg {
+            margin: 0 0.5em -0.1em 0;
+        }
+
+        li {
+            margin: 2em 0;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 12em;
+
+        &--login, &--register{
+        all: unset;
+        border-radius: 0.8em;
+        text-align: center;
+        padding: 0.6em;
+        margin: 0.3em;
+        color: $gray;
+        cursor: pointer;
+        }
+
+        &--register {
+            border: 2px solid $gray;
+
+            &:hover {
+                border: 2px solid $black;
+                color: $black;
+            }
+        }
+    }
+}
+
+.nav__show {
+    inset: 0 0 0 35%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+
+    &__img {
+        
+        &--mobile {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        margin: 1em;
+
+        &--h1 {
+            font-size: 2.1rem;
+        }
+
+        &--p {
+            line-height: 1.5rem;
+            color: $gray;
+        }
+
+        &--button {
+            all: unset;
+            cursor: pointer;
+            background-color: $black;
+            color: $white;
+            padding: 0.9em 1.2em;
+            border-radius: 1em;
+            border: 2px solid $black;
+        }
+
+        &--icons {
+            display: flex;
+            justify-content: space-between;
+            height: 1em;
+            margin-top: 3.5em;
+        }
+    }
+}
+
+@media (min-width: 900px) {
+
+    .nav__open, .nav__close {
+        display: none;
+    }
+
+    .body {
+        margin: 0;
+    }
+
+    .header {
+        display: flex;
+        align-items:flex-start;
+
+        &__logo {
+            margin: 2em 2.5em;
+        }
+    }
+
+    .nav {
+        position: unset;
+        background-color: unset;
+        transition: unset;
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+        align-items: center;
+        padding: 0;
+        font-size: 0.9rem;
+        margin-top: 0.3em;
+
+        &__ul--li {
+            display: inline-block;
+            margin: 0 1em;
+        }
+
+        .features, .company {
+            position: relative;
+
+            a {
+                padding-bottom: 2em;
+            }
+
+            li {
+                margin: 1em 0;
+            }
+
+            &:hover .dropdown {
+                display: block;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 2em;
+            width: max-content;
+            background-color: $white;
+            border-radius: 0.7em;
+            padding: 0.5em 1em;
+            box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.15);
+            transform: translateY(-1em);
+            transition: transform .5s;
+            visibility: hidden;
+            margin: 0;
+        }
+
+        .features__ul {
+            right: 0;
+        }
+
+        .company__ul {
+           left: 0;
+        }
+    
+        &__buttons {
+            flex-direction: row;
+            margin: 1em 2.5em;
+    
+            &--login, &--register{
+                margin: 0 1em;
+
+                &:hover {
+                    color: $black;
+                }
+
+            }
+    
+            &--register {
+                border: 2px solid $gray;
+                padding: 0.8em 1.5em;
+    
+                &:hover {
+                    border: 2px solid $black;
+                }
+            }
+        }
+    }
+
+    .hero {
+        flex-direction: row;
+        text-align: left;
+        height: 100vh;
+
+        &__content {
+            margin-left: 5em;
+            width: 45%;
+
+            &--h1 {
+                font-size: 3rem;
+            }
+
+            &--p {
+                font-size: 1.1rem;
+                line-height: 1.8rem;
+            }
+
+            &--button {
+                padding: 1em 1.7em;
+                font-size: 1.1rem;
+                margin: 5em 0;
+
+                &:hover {
+                    border: 2px solid $black;
+                    background: unset;
+                    color: $black;
+                }
+            }
+
+
+            &--icons {
+                display: flex;
+                justify-content: center;
+                gap: 0.5em;
+                height: 1.5em;
+
+            }
+        }
+
+        &__img {
+            background-image: url(../images/image-hero-desktop.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+
+
+            &--mobile {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero {
+        gap: 11em;
+        margin: unset;
+        margin-bottom: 3em;
+
+        &__content {
+            margin-left: 8em;
+            margin-top: 3em;
+
+            &--h1 {
+                font-size: 5rem;
+                margin-top: 2em;
+                white-space: nowrap;
+                
+                span {
+                    display: block;
+                }
+            }
+
+            &--p {
+                font-size: 1.1rem;
+                line-height: 1.8rem;
+            }
+
+            &--button {
+                padding: 1em 1.7em;
+                font-size: 1.1rem;
+                margin: 3em 0 4em;
+
+                &:hover {
+                    border: 2px solid $black;
+                    background: unset;
+                    color: $black;
+                }
+            }
+
+
+            &--icons {
+                display: flex;
+                justify-content:flex-start;
+                gap: 2em;
+                height: 1.5em;
+                margin-top: 3.5em;
+            }
+        }
+
+        &__img {
+            background-image: url(../images/image-hero-desktop.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 70%;
+
+
+            &--mobile {
+                display: none;
+            }
+        }
+    }
+}
