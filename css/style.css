@@ -301,7 +301,7 @@ li {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    margin: 1em 2.5em;
+    margin: 1em 4em;
   }
   .nav__buttons--login, .nav__buttons--register {
     margin: 0 1em;
@@ -369,25 +369,22 @@ li {
 
 @media (min-width: 1200px) {
   .hero {
-    gap: 11em;
-    margin: unset;
-    margin-bottom: 3em;
-  }
-  .hero__content {
-    margin-left: 8em;
-    margin-top: 3em;
+    gap: 3em;
+    margin: 0;
+    margin: 2em 5em;
   }
   .hero__content--h1 {
     font-size: 5rem;
-    margin-top: 2em;
+    margin-top: 1em;
     white-space: nowrap;
   }
   .hero__content--h1 span {
     display: block;
   }
   .hero__content--p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 1.8rem;
+    width: 85%;
   }
   .hero__content--button {
     padding: 1em 1.7em;
@@ -414,7 +411,7 @@ li {
     background-image: url(../images/image-hero-desktop.png);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 70%;
+    width: 33em;
   }
   .hero__img--mobile {
     display: none;

@@ -271,7 +271,7 @@ li {
     
         &__buttons {
             flex-direction: row;
-            margin: 1em 2.5em;
+            margin: 1em 4em;
     
             &--login, &--register{
                 margin: 0 1em;
@@ -350,17 +350,15 @@ li {
 
 @media (min-width: 1200px) {
     .hero {
-        gap: 11em;
-        margin: unset;
-        margin-bottom: 3em;
+        gap: 3em;
+        margin: 0;
+        margin: 2em 5em;
 
         &__content {
-            margin-left: 8em;
-            margin-top: 3em;
 
             &--h1 {
                 font-size: 5rem;
-                margin-top: 2em;
+                margin-top: 1em;
                 white-space: nowrap;
                 
                 span {
@@ -369,8 +367,9 @@ li {
             }
 
             &--p {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
                 line-height: 1.8rem;
+                width: 85%;
             }
 
             &--button {
@@ -399,7 +398,7 @@ li {
             background-image: url(../images/image-hero-desktop.png);
             background-size: contain;
             background-repeat: no-repeat;
-            width: 70%;
+            width: 33em;
 
 
             &--mobile {
